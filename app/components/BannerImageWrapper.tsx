@@ -4,7 +4,15 @@ import BannerImages from './BannerImages'
 import bannerData from '../utils/bannerData'
 
 const BannerImageWrapper = () => {
-  const [banData, setBanData] = useState(bannerData);
+  let b : {
+    id: number,
+    tempId: number,
+    background: string,
+    image: string
+    title: string,
+    desc: string
+  }[] = JSON.parse(bannerData);
+  const [banData, setBanData] = useState(b);
 
   return (
     <div className='flex justify-center items-center'>

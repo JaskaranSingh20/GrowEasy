@@ -8,6 +8,7 @@ interface ImageRowProps{
 }
 
 const ImageRow = ({handleImage}: ImageRowProps) => {
+  const Im : {id: number, image: string}[] = JSON.parse(imagesData)
   const [imageSelected, setImageSelected] = useState<number>();
 
   return (
@@ -26,7 +27,7 @@ const ImageRow = ({handleImage}: ImageRowProps) => {
 
         <div className='flex flex-nowrap gap-0'>
             {
-              imagesData ? imagesData.map((val, idx)=>{
+              Im? Im.map((val, idx)=>{
                   return <div onClick={()=> setImageSelected(val.id)} key={idx} >
                      <Images key={idx} data={val.image} handleImage={handleImage} imageSelected={imageSelected} id={val.id}/></div>
               }): ""
